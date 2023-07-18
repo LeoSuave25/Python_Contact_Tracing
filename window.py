@@ -4,15 +4,15 @@ from data_manager import DataManager
 from tkinter import messagebox
 from datetime import datetime
 from login_window import LoginWindow
+from PIL import ImageTk, Image
+
 
 main_window = tk.Tk()
 
 # ============================ STYLING
 
-window_color = ttk.Style()
-window_color.configure('main_Frame.TFrame', background='#3C3744')
 
-main_Frame = ttk.Frame(main_window, width=800, height=700, style='main_Frame.TFrame')
+main_Frame = ttk.Frame(main_window, width=800, height=700)
 main_window.title("COVID-19 CONTACT TRACING APP")
 
 main_Frame.pack()
@@ -20,12 +20,21 @@ main_Frame.pack()
 main_window.resizable(width=False, height=False)
 # ============================== WIDGETS
 
-top_frame = ttk.Label(main_Frame, text="Contact Tracing App", font=("Arial", 24), background="#B4C5E4")
+# Set the background image
+canvas = tk.Canvas(main_Frame, width=800, height=700)
+canvas.place(x=0, y=0, relwidth=1, relheight=1)
+
+image = Image.open("assets/bg1.png")
+image = image.resize((800, 700))
+background_image = ImageTk.PhotoImage(image)
+canvas.create_image(0, 0, anchor=tk.NW, image=background_image)
+
+top_frame = ttk.Label(main_Frame, text="Contact Tracing App", font=("Arial", 24) )
 top_frame.place(relx=0.5, rely=0.05, anchor=tk.CENTER)
 
 # First Question Label
 question_label = ttk.Label(main_Frame, text="1. Have you been vaccinated for COVID-19?", font=("Arial", 10),
-                            justify=tk.LEFT, wraplength=400, background="#B4C5E4")
+                            justify=tk.LEFT, wraplength=400 )
 question_label.place(relx=0.05, rely=0.11, anchor=tk.W)
 
 # Options
@@ -44,7 +53,7 @@ dropdown_menu.place(relx=0.4, rely=0.11, anchor=tk.W)
 
 # Second Question Label
 question_label2 = ttk.Label(main_Frame, text="2. Are you experiencing any symptoms in the past 7 days such as:",
-                            font=("Arial", 10), justify=tk.LEFT, wraplength=400, background="#B4C5E4")
+                            font=("Arial", 10), justify=tk.LEFT, wraplength=400 )
 question_label2.place(relx=0.05, rely=0.15, anchor=tk.W)
 
 # Second Question Checkboxes
@@ -78,7 +87,7 @@ for i, symptom in enumerate(symptoms):
 
 # Third Question Label
 question_label3 = ttk.Label(main_Frame, text="3. Have you had exposure to a probable or confirmed case in the last 14 days?",
-                            font=("Arial", 10), justify=tk.LEFT, wraplength=400, background="#B4C5E4")
+                            font=("Arial", 10), justify=tk.LEFT, wraplength=400)
 question_label3.place(relx=0.05, rely=0.4, anchor=tk.W)
 
 # Third Question Dropdown
@@ -96,7 +105,7 @@ dropdown_menu3.place(relx=0.6, rely=0.4, anchor=tk.W)
 question_label4 = ttk.Label(main_Frame, text="4. Have you had contact with somebody with body pains, headache, sore throat, "
                                               "fever, diarrhea, cough, colds, shortness of breath, loss of taste, "
                                               "or loss of smell in the past 7 days?",
-                            font=("Arial", 10), justify=tk.LEFT, wraplength=400, background="#B4C5E4")
+                            font=("Arial", 10), justify=tk.LEFT, wraplength=400 )
 question_label4.place(relx=0.05, rely=0.48, anchor=tk.W)
 
 # Fourth Question Dropdown
@@ -111,7 +120,7 @@ dropdown_menu4.place(relx=0.6, rely=0.48, anchor=tk.W)
 
 # Fifth Question Label
 question_label5 = ttk.Label(main_Frame, text="5. Have you been tested for Covid-19 in the last 14 days?",
-                            font=("Arial", 10), justify=tk.LEFT, wraplength=400, background="#B4C5E4")
+                            font=("Arial", 10), justify=tk.LEFT, wraplength=400 )
 question_label5.place(relx=0.05, rely=0.55, anchor=tk.W)
 
 # Fifth Question Dropdown
@@ -127,11 +136,11 @@ dropdown_menu5 = ttk.OptionMenu(main_Frame, selected_option5, fifth_options[0], 
 dropdown_menu5.place(relx=0.6, rely=0.55, anchor=tk.W)
 
 # Respondent Details Label
-details_label = ttk.Label(main_Frame, text="Respondent Details", font=("Arial", 12), background="#B4C5E4")
+details_label = ttk.Label(main_Frame, text="Respondent Details", font=("Arial", 12) )
 details_label.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
 # Respondent Name Label
-name_label = ttk.Label(main_Frame, text="6.a Name*", font=("Arial", 10), justify=tk.LEFT, background="#B4C5E4")
+name_label = ttk.Label(main_Frame, text="6.a Name*", font=("Arial", 10), justify=tk.LEFT )
 name_label.place(relx=0.03, rely=0.65, anchor=tk.W)
 
 # Respondent Name Entry Field
@@ -139,7 +148,7 @@ respondent_name_entry = ttk.Entry(main_Frame, width=20)
 respondent_name_entry.place(relx=0.13, rely=0.65, anchor=tk.W)
 
 # Respondent Email Address Label
-email_label = ttk.Label(main_Frame, text="6.b Email Address*", font=("Arial", 10), justify=tk.LEFT, background="#B4C5E4")
+email_label = ttk.Label(main_Frame, text="6.b Email Address*", font=("Arial", 10), justify=tk.LEFT )
 email_label.place(relx=0.30, rely=0.65, anchor=tk.W)
 
 # Respondent Email Address Entry Field
@@ -147,8 +156,7 @@ email_entry = ttk.Entry(main_Frame, width=20)
 email_entry.place(relx=0.46, rely=0.65, anchor=tk.W)
 
 # Respondent Contact Number Label
-contact_label = ttk.Label(main_Frame, text="6.c Contact Number*", font=("Arial", 10), justify=tk.LEFT,
-                          background="#B4C5E4")
+contact_label = ttk.Label(main_Frame, text="6.c Contact Number*", font=("Arial", 10), justify=tk.LEFT)
 contact_label.place(relx=0.63, rely=0.65, anchor=tk.W)
 
 # Respondent Contact Number Entry Field
@@ -156,11 +164,11 @@ contact_entry = ttk.Entry(main_Frame, width=20)
 contact_entry.place(relx=0.8, rely=0.65, anchor=tk.W)
 
 # Contact Person Details Label
-details_label2 = ttk.Label(main_Frame, text="Contact Person Details", font=("Arial", 12), background="#B4C5E4")
+details_label2 = ttk.Label(main_Frame, text="Contact Person Details", font=("Arial", 12) )
 details_label2.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
 
 # Contact Person Name Label
-name_label = ttk.Label(main_Frame, text="7.a Name*", font=("Arial", 10), justify=tk.LEFT, background="#B4C5E4")
+name_label = ttk.Label(main_Frame, text="7.a Name*", font=("Arial", 10), justify=tk.LEFT )
 name_label.place(relx=0.05, rely=0.75, anchor=tk.W)
 
 # Contact Person Name Entry Field
@@ -168,8 +176,7 @@ name_entry = ttk.Entry(main_Frame, width=25)
 name_entry.place(relx=0.25, rely=0.75, anchor=tk.W)
 
 # Contact Person Contact Number Label
-contact_label2 = ttk.Label(main_Frame, text="7.b Contact Number*", font=("Arial", 10), justify=tk.LEFT,
-                          background="#B4C5E4")
+contact_label2 = ttk.Label(main_Frame, text="7.b Contact Number*", font=("Arial", 10), justify=tk.LEFT)
 contact_label2.place(relx=0.5, rely=0.75, anchor=tk.W)
 
 # Contact Person Contact Number Entry Field
@@ -177,8 +184,7 @@ contact_entry2 = ttk.Entry(main_Frame, width=25)
 contact_entry2.place(relx=0.7, rely=0.75, anchor=tk.W)
 
 # Contact Person Email Address Label
-email_label2 = ttk.Label(main_Frame, text="7.c Email Address*", font=("Arial", 10), justify=tk.LEFT,
-                         background="#B4C5E4")
+email_label2 = ttk.Label(main_Frame, text="7.c Email Address*", font=("Arial", 10), justify=tk.LEFT)
 email_label2.place(relx=0.05, rely=0.8, anchor=tk.W)
 
 # Contact Person Email Address Entry Field
@@ -187,7 +193,7 @@ email_entry2.place(relx=0.25, rely=0.8, anchor=tk.W)
 
 # Contact Person Relationship Label
 relationship_label = ttk.Label(main_Frame, text="7.d Relationship to the \ncontact person*", font=("Arial", 10),
-                               justify=tk.LEFT, background="#B4C5E4")
+                               justify=tk.LEFT )
 relationship_label.place(relx=0.5, rely=0.8, anchor=tk.W)
 
 # Contact Person Relationship Entry Field
@@ -275,7 +281,7 @@ def open_login_window():
     login_window = LoginWindow()
 
 access_records_button = ttk.Button(main_Frame, text="Access Records", command=open_login_window)
-access_records_button.place(relx=0.2, rely=0.9,)
+access_records_button.place(relx=0.2, rely=0.89,)
 
 
 main_window.mainloop()
