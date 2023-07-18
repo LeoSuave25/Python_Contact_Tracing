@@ -10,3 +10,10 @@ class DataManager:
                 writer.writerow(questions)
 
             writer.writerow(data)
+
+    def load_data(filename):
+        with open(filename, 'r', newline='') as file:
+            reader = csv.reader(file)
+            data = list(reader)
+
+        return data
