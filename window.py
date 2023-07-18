@@ -3,6 +3,7 @@ from tkinter import ttk
 from data_manager import DataManager
 from tkinter import messagebox
 from datetime import datetime
+from login_window import LoginWindow
 
 main_window = tk.Tk()
 
@@ -267,6 +268,14 @@ def submit():
 # Create a submit button
 submit_button = ttk.Button(main_Frame, text="Submit", command=submit)
 submit_button.place(relx=0.8, rely=0.9, anchor=tk.CENTER)
+
+# Create an Access Record Button
+
+def open_login_window():
+    login_window = LoginWindow()
+
+access_records_button = ttk.Button(main_Frame, text="Access Records", command=open_login_window)
+access_records_button.place(relx=0.2, rely=0.9,)
 
 
 main_window.mainloop()
