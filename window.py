@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
-    
-    
+
+
 main_window = tk.Tk()
 
 # ============================ STYLING
@@ -90,7 +90,7 @@ dropdown_menu3 = ttk.OptionMenu(main_Frame, selected_option3, third_options[0], 
 dropdown_menu3.place(relx=0.6, rely=0.4, anchor=tk.W)
 
 # Fourth Question Label
-question_label4 = ttk.Label(main_Frame, text="4. Have you had in contact with somebody with body pains, headache, sore throat, "
+question_label4 = ttk.Label(main_Frame, text="4. Have you had contact with somebody with body pains, headache, sore throat, "
                                               "fever, diarrhea, cough, colds, shortness of breath, loss of taste, "
                                               "or loss of smell in the past 7 days?",
                             font=("Arial", 10), justify=tk.LEFT, wraplength=400, background="#B4C5E4")
@@ -123,5 +123,64 @@ selected_option5 = tk.StringVar()
 dropdown_menu5 = ttk.OptionMenu(main_Frame, selected_option5, fifth_options[0], *fifth_options)
 dropdown_menu5.place(relx=0.6, rely=0.55, anchor=tk.W)
 
+# Respondent Details Label
+details_label = ttk.Label(main_Frame, text="Respondent Details", font=("Arial", 12), background="#B4C5E4")
+details_label.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
+
+# Respondent Email Address Label
+email_label = ttk.Label(main_Frame, text="6.a Email Address*", font=("Arial", 10), justify=tk.LEFT, background="#B4C5E4")
+email_label.place(relx=0.05, rely=0.65, anchor=tk.W)
+
+# Respondent Email Address Entry Field
+email_entry = ttk.Entry(main_Frame, width=25)
+email_entry.place(relx=0.25, rely=0.65, anchor=tk.W)
+
+# Respondent Contact Number Label
+contact_label = ttk.Label(main_Frame, text="6.b Contact Number*", font=("Arial", 10), justify=tk.LEFT,
+                          background="#B4C5E4")
+contact_label.place(relx=0.5, rely=0.65, anchor=tk.W)
+
+# Respondent Contact Number Entry Field
+contact_entry = ttk.Entry(main_Frame, width=25)
+contact_entry.place(relx=0.7, rely=0.65, anchor=tk.W)
+
+# Contact Person Details Label
+details_label2 = ttk.Label(main_Frame, text="Contact Person Details", font=("Arial", 12), background="#B4C5E4")
+details_label2.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
+
+# Contact Person Name Label
+name_label = ttk.Label(main_Frame, text="7.a Name*", font=("Arial", 10), justify=tk.LEFT, background="#B4C5E4")
+name_label.place(relx=0.05, rely=0.75, anchor=tk.W)
+
+# Contact Person Name Entry Field
+name_entry = ttk.Entry(main_Frame, width=25)
+name_entry.place(relx=0.25, rely=0.75, anchor=tk.W)
+
+# Contact Person Contact Number Label
+contact_label2 = ttk.Label(main_Frame, text="7.b Contact Number*", font=("Arial", 10), justify=tk.LEFT,
+                          background="#B4C5E4")
+contact_label2.place(relx=0.5, rely=0.75, anchor=tk.W)
+
+# Contact Person Contact Number Entry Field
+contact_entry2 = ttk.Entry(main_Frame, width=25)
+contact_entry2.place(relx=0.7, rely=0.75, anchor=tk.W)
+
+# Contact Person Email Address Label
+email_label2 = ttk.Label(main_Frame, text="7.c Email Address*", font=("Arial", 10), justify=tk.LEFT,
+                         background="#B4C5E4")
+email_label2.place(relx=0.05, rely=0.8, anchor=tk.W)
+
+# Contact Person Email Address Entry Field
+email_entry2 = ttk.Entry(main_Frame, width=25)
+email_entry2.place(relx=0.25, rely=0.8, anchor=tk.W)
+
+# Contact Person Relationship Label
+relationship_label = ttk.Label(main_Frame, text="7.d Relationship to the \ncontact person*", font=("Arial", 10),
+                               justify=tk.LEFT, background="#B4C5E4")
+relationship_label.place(relx=0.5, rely=0.8, anchor=tk.W)
+
+# Contact Person Relationship Entry Field
+relationship_entry = ttk.Entry(main_Frame, width=25)
+relationship_entry.place(relx=0.7, rely=0.8, anchor=tk.W)
 
 main_window.mainloop()
