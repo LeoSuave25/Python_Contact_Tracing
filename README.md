@@ -35,3 +35,10 @@ If you have any questions, feel free to contact me at suaverdez90@gmail.com
 ## :file_folder: License
 
 This project is open source, feel free to use and modify it.
+
+## ⏯️: Demo Video
+
+
+https://github.com/LeoSuave25/Python_Contact_Tracing/assets/129582854/4904da29-cc03-4046-8635-716d473eb509
+
+
